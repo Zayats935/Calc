@@ -90,11 +90,28 @@ public class Main {
                         {
                             result = usableRoman.findByNumber(Roman.valueOf(firstNumber).integer - Roman.valueOf(secondNumber).integer).toString();
                         }
+                        else {
+                            throw new RuntimeException("В римских числах нет отрицательных");
+                        }
                         break;
                 }
                  
         } else if ((!firstNumber.contains("X") && !firstNumber.contains("V") && !firstNumber.contains("I")) && (!secondNumber.contains("X") && !secondNumber.contains("V") && !secondNumber.contains("I"))) {
-            result = Integer.toString(Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber));
+            switch (operand)
+            {
+                case "+":
+                    result = Integer.toString(Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber));
+                    break;
+                case "-":
+                    result = Integer.toString(Integer.parseInt(firstNumber) - Integer.parseInt(secondNumber));
+                    break;
+                case "*":
+                    result = Integer.toString(Integer.parseInt(firstNumber) * Integer.parseInt(secondNumber));
+                    break;
+                case "/":
+                    result = Integer.toString(Integer.parseInt(firstNumber) / Integer.parseInt(secondNumber));
+                    break;
+            }
         } else {
             throw new RuntimeException("Используются одновременно разные системы счисления");
         }
