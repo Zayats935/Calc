@@ -75,7 +75,11 @@ public class Main {
         }
         if ((firstNumber.contains("X") || firstNumber.contains("V") || firstNumber.contains("I")) && (secondNumber.contains("X") || secondNumber.contains("V") || secondNumber.contains("I")))
         {
-             switch (operand) {
+            if (Roman.valueOf(firstNumber).integer<1||Roman.valueOf(firstNumber).integer>10|| Roman.valueOf(secondNumber).integer<1|| Roman.valueOf(secondNumber).integer>10)
+            {
+                throw new RuntimeException("Введенные числа вне пределов диапазона");
+            }
+            switch (operand) {
                     case "+":
                         result = usableRoman.findByNumber(Roman.valueOf(firstNumber).integer + Roman.valueOf(secondNumber).integer).toString();
                         break;
@@ -97,6 +101,10 @@ public class Main {
                 }
                  
         } else if ((!firstNumber.contains("X") && !firstNumber.contains("V") && !firstNumber.contains("I")) && (!secondNumber.contains("X") && !secondNumber.contains("V") && !secondNumber.contains("I"))) {
+            if (Integer.parseInt(firstNumber)<1||Integer.parseInt(firstNumber)>10||Integer.parseInt(secondNumber)<1||Integer.parseInt(secondNumber)>10)
+            {
+                throw new RuntimeException("Введенные числа вне пределов диапазона");
+            }
             switch (operand)
             {
                 case "+":
